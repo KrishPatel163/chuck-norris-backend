@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+ </head>
+ <body class="bg-black text-white">
+    <!-- Main container -->
+    <div class="bg-black">
+      <!-- Flex container for centering items -->
+      <div class="flex h-screen flex-col items-center justify-center">
+        <!-- Container for Joke card -->
+        <div class="max-h-auto mx-auto max-w-xl bg-white p-5">
+          <!-- Joke Detail -->
+          <div class="mb-8 space-y-3">
+            <p class="text-xl text-black font-semibold">Chuck Norris Joke is</p>
+            <p class="text-black">
+                <%= joke.value %>
+            </p>
+          </div>
+          <!-- Get Joke -->
+          <form class="w-full">
+            <div class="mb-10 space-y-3">
+              <div class="space-y-1">
+                <div class="space-y-2">
+                 <!-- DropDown Field -->
+                 <label for="category" class="text-black">Category:</label>
+                 <select name="category" id="category" class="text-black border-slate-400">
+                    <% categories.forEach(element => { %>
+                    <option value="<%= element %>"><%= element %></option>
+                    <% }); %>
+                 </select>
+                 <input type="submit" value="Submit" class="bg-black text-white rounded-md px-3 py-1 hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
+                </div>
+              </div>
+              <!-- button -->
+              <button
+                class="ring-offset-black focus-visible:ring-black flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                type="submit"
+              >
+                Get Joke
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+ </body>
+</html>
