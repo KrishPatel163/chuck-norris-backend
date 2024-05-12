@@ -13,6 +13,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use('/', (req, res) => {
+    res.send("Welcome To my backend.")
+})
+
 app.use('/api/jokes', async (req, res) => {
     try {
         let apiUrl = "https://api.chucknorris.io/jokes/random";
