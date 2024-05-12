@@ -1,9 +1,13 @@
 import express from "express";
+import env from "dotenv"
 import axios from "axios";
 import cors from "cors";
+env.config({
+    path: './.env'
+})
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
